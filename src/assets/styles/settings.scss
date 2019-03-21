@@ -1,0 +1,84 @@
+// breakpoints 
+$breakpoint-tablet_min: 48rem;
+$breakpoint-desktop_min: 64rem;
+
+// colors
+$color-main: #003970;
+$color-sec: #4BA7EE;
+$color-alt: #105AA3;
+$color-alt_ligth: #c9e3f9;
+
+$color-accent_1: #6DC138;
+$color-accent_2: #E82E34;
+$color-accent_3: #FAC937;
+
+$color-grey_bg: #FAFAFA;
+$color-grey_content: #F9F9F9;
+$color-grey_light: #DEE1E8;
+$color-grey_dark: #8B9199;
+$color-grey_font: #616469;
+$color-grey_shadow: #505C77;
+
+// fonts
+$fontFamily-main: 'Roboto', sans-serif;
+$fontFamily-alt: 'Roboto Slab', serif;
+
+// shadowss
+$boxShadow-main: 0 1px 2px 0 transparentize(#505C77, 0.9);
+$boxShadow-sec: 0 1px 4px 0 transparentize(#505C77, 0.85); 
+
+/*
+ * MIXINS
+ */
+
+// media queries
+
+@mixin desktop {
+  @media only screen and (min-width: #{$breakpoint-tablet_min}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$breakpoint-desktop_min}) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media only screen and (max-width: #{$breakpoint-desktop_min} - 1) {
+    @content;
+  }
+}
+
+// Text styles
+
+@mixin txt-title-main {
+  font-family: $fontFamily-alt;
+  color: $color-main;
+  font-size: 1.25rem;
+  line-height: 1.33;
+  text-align: center;
+  @include tablet { 
+    font-size: 1.5rem;
+  }
+}
+
+@mixin txt-card-title {
+  color: $color-alt;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@mixin txt-button {
+  color: $color-alt;
+  line-height: 1;
+}
+
+@mixin txt-bullet {
+  color: $color-main;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+}
+

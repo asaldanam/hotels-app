@@ -1,0 +1,47 @@
+@import '../settings';
+
+.button {
+  padding: 0.65rem 1.25rem 0.65rem 2.75rem;
+  background-color: transparentize($color-grey_light, 0.75);
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transform: border-color 0.5s linear;
+  border-radius: 2px;
+
+  &:before {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    border: 1px solid $color-grey_font;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(1rem - 2px);
+    left: 1.25rem;
+  }
+
+  &:after {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    background-color: $color-accent_1;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(1rem - 2px);
+    left: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    transform: scale(0.65)
+  }
+
+  &_active {
+    border-color: $color-main;
+    &:after {
+      opacity: 1;
+    }
+  }
+}

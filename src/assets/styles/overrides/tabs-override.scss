@@ -1,0 +1,44 @@
+.ant-tabs-nav-wrap {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.ant-tabs-nav-scroll {
+  display: flex;
+  justify-content: center;
+  @include tablet {
+    justify-content: flex-end;
+  }
+}
+
+.ant-tabs-bar {
+
+  margin-bottom: 2px;
+
+  &.ant-tabs-top-bar {
+    background: white;
+    box-shadow: $boxShadow-main;
+  }  
+}
+.ant-tabs-nav { 
+  .ant-tabs-tab {
+    font-family: $fontFamily-alt;
+  }
+  .ant-tabs-tab-active {
+    color: $color-main;
+  }
+}
+
+.ant-tabs-ink-bar {
+  background-color: $color-main;
+}
+
+.ant-tabs {
+  overflow: visible;
+  .ant-tabs-top-content.ant-tabs-content-animated {
+    transition-duration: 0.75s;
+  }
+  & > .ant-tabs-tabpane {
+    // transition: opacity 1s;
+  }
+}

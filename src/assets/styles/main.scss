@@ -1,0 +1,44 @@
+//variables & tools
+@import 'settings';
+
+//resets
+@import 'normalize';
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  outline: none;
+}
+
+//library styles & overrides1
+@import '~antd/dist/antd.css';
+@import 'overrides/tabs-override';
+
+//layout wrappers
+@import 'layout';
+
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700');
+
+//utils
+@import 'utils';
+
+body, html {
+  font-family: $fontFamily-main;
+  background-color: $color-grey_bg;
+  font-size: 16px;
+  @include tablet {
+    overflow-x: hidden;
+  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: none;
+}

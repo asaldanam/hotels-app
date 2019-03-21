@@ -1,0 +1,24 @@
+@import '../settings';
+
+.cardHolder {
+
+  &Container {
+    background-color: $color-grey_content;
+    border-radius: 3px;
+    box-shadow: $boxShadow-sec;
+  }
+
+  &StarContainer {
+    text-align: center;
+  }
+
+  &Star {
+    position: relative;
+    top: 1px;
+  }
+
+  &Title {
+    @include txt-title-main;
+  }
+
+}
