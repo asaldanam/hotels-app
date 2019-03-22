@@ -33,13 +33,13 @@ $boxShadow-sec: 0 1px 4px 0 transparentize(#505C77, 0.85);
 
 // media queries
 
-@mixin desktop {
+@mixin tablet {
   @media only screen and (min-width: #{$breakpoint-tablet_min}) {
     @content;
   }
 }
 
-@mixin tablet {
+@mixin desktop {
   @media only screen and (min-width: #{$breakpoint-desktop_min}) {
     @content;
   }
@@ -52,6 +52,11 @@ $boxShadow-sec: 0 1px 4px 0 transparentize(#505C77, 0.85);
 }
 
 // Text styles
+
+@mixin txt-body {
+  color: $color-grey_font;
+  font-size: $color
+}
 
 @mixin txt-title-main {
   font-family: $fontFamily-alt;
@@ -81,4 +86,40 @@ $boxShadow-sec: 0 1px 4px 0 transparentize(#505C77, 0.85);
   font-size: 0.9375rem;
   line-height: 1.2;
 }
+
+@mixin txt-collapsible-title {
+  font-family: $fontFamily-alt;
+  color: $color-sec;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 700;
+  @include tablet { 
+    font-size: 1.5rem;
+  }
+}
+
+@mixin txt-label {
+  color: $color-main;
+  font-size: 0.75rem;
+}
+
+@mixin txt-alt-info {
+  letter-spacing: 2px;
+  font-size: 0.65rem;
+}
+
+@mixin txt-additional-info {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $color-main;
+}
+
+@mixin txt-feature-title {
+  font-family: $fontFamily-alt;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+
+
 

@@ -27,13 +27,19 @@ button {
 //utils
 @import 'utils';
 
-body, html {
+html {
+  overflow: hidden;
+}
+
+body {
   font-family: $fontFamily-main;
   background-color: $color-grey_bg;
   font-size: 16px;
-  @include tablet {
-    overflow-x: hidden;
-  }
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
@@ -41,4 +47,5 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-overflow-scrolling: none;
+  &::-webkit-scrollbar { display: none; }
 }

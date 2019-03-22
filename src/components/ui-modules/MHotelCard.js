@@ -3,45 +3,15 @@ import { Tabs } from 'antd';
 import CardHolder from '../ui-kit/CardHolder';
 import ServiceCard from '../ui-kit/ServiceCard';
 import { Flex, Box } from 'reflexbox';
+import CollapsibleElement from '../ui-kit/CollapsibleElement';
+import FeatureBlock from '../ui-kit/FeatureBlock';
+import data from '../../data.js';
 
 export default class MHotelCard extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {
-      literals: {
-        hotelTxt: 'Hotel',
-        buttonTxt: 'Elegir régimen'
-      },
-      hotelName: 'Mieres del Camín Apartamentos',
-      cards: [
-        {
-          id: 'Solo Alojamiento',
-          features: ['Sin régimen', 'Botella de agua de bienvenida'],
-          selected: false
-        },
-        {
-          id: 'Alojamiento y Desayuno',
-          features: ['Desayuno buffet completo'],
-          selected: true
-        },
-        {
-          id: 'Media Pensión',
-          features: ['Desayuno buffet completo', 'Cena buffet', 'No incluye'],
-          selected: false
-        },
-        {
-          id: 'Todo incluido',
-          features: ['Dispondrás de comida y bebida todo el día y durante toda tu estancia.', 'Restaurante buffet', 'Snack Bar', 'Servicio de bares (marcas nacionales)'],
-          selected: false
-        },
-        {
-          id: 'Unlimited Services',
-          features: ['Dispondrás de comida y bebida todo el día y durante toda tu estancia.', 'Restaurante buffet', 'Snack Bar', 'Servicio de bares (marcas nacionales)', 'Restaurante buffet con bebidas Premium', 'Restaurante a la carta (una cena por estancia)', 'Snack Bar con bebidas Premium'],
-          selected: false
-        },
-      ]
-    }
+    this.state = data
   }
 
   componentDidMount() {
@@ -55,10 +25,17 @@ export default class MHotelCard extends PureComponent {
     this.setState(() => ({ cards: updatedCards }))
   }
 
+  getImage(imgKey) {
+    return this.state.images && this.state.images[imgKey]
+      ? this.state.images[imgKey]
+      : null
+  }
+
   render() {
     return (
       <section className="g-mainwrapper">
         <Tabs defaultActiveKey="1">
+          {/* MHotelPlanSelector */}
           <Tabs.TabPane tab="Tab 1" key="1">
             <CardHolder
               hotelTxt={this.state.literals.hotelTxt}
@@ -67,7 +44,7 @@ export default class MHotelCard extends PureComponent {
             >
               <Flex align={'stretch'} wrap>
                 {this.state.cards.map(card => 
-                  <Box key={card.id} w={['100%', '50%', '20%']} px={'4px'} mb={[2, 2, 0]} onClick={() => this.selectCard(card)}>
+                  <Box key={card.id} w={['100%', '50%', '20%']} px={'4px'} mb={[2, 1, 0]} onClick={() => this.selectCard(card)}>
                     <ServiceCard 
                       title={card.id} 
                       features={card.features} 
@@ -79,7 +56,51 @@ export default class MHotelCard extends PureComponent {
               </Flex>
             </CardHolder>
           </Tabs.TabPane>
-          <Tabs.TabPane tab="Tab 2" key="2">Content of Tab Pane 2</Tabs.TabPane>
+          {/* MHotelFeatures */}
+          <Tabs.TabPane tab="Tab 2" key="2">
+            <Box pt={3} px={[2, 2, 0]}>
+              <CollapsibleElement 
+                title={this.state.literals.optionalFeatureATxT}
+                subtitle={this.state.literals.optionalLabelTxT}
+                altInfo={this.state.literals.altInfoFeatureTxT}
+              >
+                {this.state.featuresA.map(feature => 
+                  <Box mb={2}>
+                    <FeatureBlock
+                      title={feature.title}
+                      photoImg={this.getImage(feature.id)}
+                      featureBody={feature.body}
+                      featureItems={feature.featureItems}
+                      additionalInfo={feature.altInfo}
+                      collapsibleHeaderTxT={this.state.literals.collapsibleHeaderTxT}
+                      collapsibleTitleTxT={this.state.literals.collapsibleTitleTxT}
+                    />
+                  </Box>
+                )}
+              </CollapsibleElement>
+            </Box>
+            <Box pt={3} px={[2, 2, 0]}>
+              <CollapsibleElement 
+                title={this.state.literals.optionalFeatureBTxT}
+                subtitle={this.state.literals.optionalLabelTxT}
+                altInfo={this.state.literals.altInfoFeatureTxT}
+              >
+                {this.state.featuresA.map(feature => 
+                  <Box mb={2}>
+                    <FeatureBlock
+                      title={feature.title}
+                      photoImg={this.getImage(feature.id)}
+                      featureBody={feature.body}
+                      featureItems={feature.featureItems}
+                      additionalInfo={feature.altInfo}
+                      collapsibleHeaderTxT={this.state.literals.collapsibleHeaderTxT}
+                      collapsibleTitleTxT={this.state.literals.collapsibleTitleTxT}
+                    />
+                  </Box>
+                )}
+              </CollapsibleElement>
+            </Box>
+          </Tabs.TabPane>
         </Tabs>
       </section>
     )

@@ -1,0 +1,106 @@
+@import '../settings';
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+.featureBlock {
+  background-color: white;
+  border: 1px solid $color-grey_light;
+  min-height: 11.25rem;
+  cursor: pointer;
+  transition: background-color 0.23s linear;
+  &:hover {
+    background-color: $color-grey_content;
+  }
+
+  $this: &;
+
+  &_open {
+    #{$this}Arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  &Photo{
+    min-width: 17rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: inherit;
+    & > img {
+      height: 11.25rem
+    }
+  }
+
+  &Title {
+    @include txt-feature-title;
+    color: $color-main;
+  }
+
+  &Body {
+  }
+
+  &CollapsibleLink {
+    @include txt-collapsible-title;
+    font-size: 0.875rem;
+    @include tablet {
+      font-size: 0.875rem;
+    }
+  }
+
+  &Arrow {
+    width: 1rem;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+    transform: rotate(0deg);
+  }
+
+  &CollapsibleContent {
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    &_animation {
+      animation: fade-in 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &CollapsibleTitle {
+    font-size: 1rem;
+  }
+
+  &CollapsibleList {
+    padding-left: 0;
+    list-style: none;
+    @include tablet {
+      column-count: 3;
+    }
+    & > li {
+      padding-left: 0.875rem;
+      position: relative;
+      &:before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background-color: $color-grey_font;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+      }
+    }
+
+  }
+
+  &CollapsibleInfo{
+    @include txt-additional-info;
+  }
+
+}

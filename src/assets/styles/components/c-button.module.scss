@@ -40,6 +40,9 @@
 
   &_active {
     border-color: $color-main;
+    &:before {
+      border-color: $color-accent_1;
+    }
     &:after {
       opacity: 1;
     }

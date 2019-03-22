@@ -11,7 +11,7 @@ const ServiceCard = memo(function ServiceCard(props) {
   }
 
   return (
-    <Flex className={cx.serviceCard} pt={3} pb={[3, 2]} px={[3, 2]} column>
+    <Flex className={cx.serviceCard} pt={3} pb={[3, 2]} px={[3, 2, 2]} column>
       <Box className={css.serviceCardTitle} mb={2}>
         {props.title}
       </Box>
