@@ -61,19 +61,19 @@ $boxShadow-sec: 0 1px 4px 0 transparentize(#505C77, 0.85);
 @mixin txt-title-main {
   font-family: $fontFamily-alt;
   color: $color-main;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.33;
   text-align: center;
-  @include tablet { 
-    font-size: 1.5rem;
-  }
 }
 
 @mixin txt-card-title {
   color: $color-alt;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1;
+  @include tablet {
+    font-size: 1rem;
+  }
 }
 
 @mixin txt-button {

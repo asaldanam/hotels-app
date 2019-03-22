@@ -37,9 +37,23 @@
 
   &List {
     padding-left: 1.15rem;
+    list-style: none;
+    padding: 0;
     & > li {
       @include txt-bullet;
       margin-bottom: 0.5rem;
+      padding-left: 0.875rem;
+      position: relative;
+      &:before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background-color: $color-grey_dark;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+      }
     }
   }
 

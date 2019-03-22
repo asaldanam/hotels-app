@@ -20,7 +20,7 @@ const FeatureBlock = memo(function FeatureBlock(props) {
         {props.photoImg && props.photoImg.src ? 
         <Box w={['100%', '17rem']} className={css.featureBlockPhoto} style={{backgroundImage: `url(${props.photoImg.src})`}}></Box>
         : null}
-        <Flex w={['100%', 'calc(100% - 17rem)']} column pt={2} pb={1} px={2}>
+        <Flex className={css.featureBlockHeader} w={['100%', 'calc(100% - 17rem)']} column pt={2} pb={1} px={2}>
           <Box className={css.featureBlockTitle} mb={'4px'}> {props.title} </Box>
           <Box className={css.featureBlockBody}> {props.featureBody} </Box>
           <Box className={css.featureBlockCollapsibleLink} mt={'auto'} pt={1}> 

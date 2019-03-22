@@ -40,6 +40,10 @@
     }
   }
 
+  &Header{
+    max-width: 48rem;
+  }
+
   &Title {
     @include txt-feature-title;
     color: $color-main;

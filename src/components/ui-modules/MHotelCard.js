@@ -35,6 +35,7 @@ export default class MHotelCard extends PureComponent {
     return (
       <section className="g-mainwrapper">
         <Tabs defaultActiveKey="1">
+
           {/* MHotelPlanSelector */}
           <Tabs.TabPane tab="Tab 1" key="1">
             <CardHolder
@@ -44,7 +45,7 @@ export default class MHotelCard extends PureComponent {
             >
               <Flex align={'stretch'} wrap>
                 {this.state.cards.map(card => 
-                  <Box key={card.id} w={['100%', '50%', '20%']} px={'4px'} mb={[2, 1, 0]} onClick={() => this.selectCard(card)}>
+                  <Box key={card.id} w={['100%', '50%', '20%']} px={[1, 1,'4px']} mb={[2, 2, 0]} onClick={() => this.selectCard(card)}>
                     <ServiceCard 
                       title={card.id} 
                       features={card.features} 
@@ -56,6 +57,7 @@ export default class MHotelCard extends PureComponent {
               </Flex>
             </CardHolder>
           </Tabs.TabPane>
+          
           {/* MHotelFeatures */}
           <Tabs.TabPane tab="Tab 2" key="2">
             <Box pt={3} px={[2, 2, 0]}>
@@ -65,7 +67,7 @@ export default class MHotelCard extends PureComponent {
                 altInfo={this.state.literals.altInfoFeatureTxT}
               >
                 {this.state.featuresA.map(feature => 
-                  <Box mb={2}>
+                  <Box mt={2}>
                     <FeatureBlock
                       title={feature.title}
                       photoImg={this.getImage(feature.id)}
@@ -86,7 +88,7 @@ export default class MHotelCard extends PureComponent {
                 altInfo={this.state.literals.altInfoFeatureTxT}
               >
                 {this.state.featuresA.map(feature => 
-                  <Box mb={2}>
+                  <Box mt={2}>
                     <FeatureBlock
                       title={feature.title}
                       photoImg={this.getImage(feature.id)}
@@ -101,6 +103,7 @@ export default class MHotelCard extends PureComponent {
               </CollapsibleElement>
             </Box>
           </Tabs.TabPane>
+          
         </Tabs>
       </section>
     )
